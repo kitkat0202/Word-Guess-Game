@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Anime Hangman</title>
+    <!-- reset CSS -->
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <!-- bootstrap latest version is v4.0.0 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Eater|Indie+Flower|Poppins" rel="stylesheet">
+    <!-- extra css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- JQuery Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Popper JS Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <!-- bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <!-- Font Awsome JS Library -->
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+</head>
+<body>
+
+    <!-- nav bar -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><h1>Anime Hangman</h1></a>
+
+            <!-- create a dropdown button for menue when screen gets too small -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- the menu -->
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+            <!-- ml-auto: pushes the menu to list to the right side when is is not collapse -->
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active"><a href="https://kitkat0202.github.io/" class="nav-link">Home</a> </li>
+                    <li class="nav-item"><a href="https://kitkat0202.github.io/bootstrap-portfolio/" class="nav-link">Bootstrap</a> </li>
+                    <li class="nav-item"><a href="https://kitkat0202.github.io/responsive-portfolio/" class="nav-link">Responsive</a> </li>
+                    <li class="nav-item"><a href="https://github.com/kitkat0202" class="nav-link">GitHub</a> </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+
+
+
+
+
+<!-- !!!!!!!!!!!!!! Will Diappear when game starts!!!!!!!!!!!!!!! -->
+    <div class="container pre-game">
+        <img src="assets/images/game-start-img.jpg" alt="Game start img" class="img-fluid">
+        <div class="pre-caption">
+                <h3>Click Button to Start</h3>
+                <button type="button" class="btn btn-outline-light btn-lg">Start Game</button>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+<!-- !!!!!!!!!!!!!! Start Here only appears when Game starts!!!!!!!!!!!!!!! -->
+    <!-- Image slides -->
+    <div class="container game-time">
+        <div id="demo" class="carousel slide" data-ride="carousel">
+
+            <!-- Indicators -->
+            <ul class="carousel-indicators">
+                <li data-target="#demo" data-slide-to="0" class="active"></li>
+                <li data-target="#demo" data-slide-to="1"></li>
+                <li data-target="#demo" data-slide-to="2"></li>
+            </ul>
+
+            <!-- The slideshow -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="assets/images/bg-1920x1080-1.jpg" alt="Naruto" width="1100" height="500">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="assets/images/bg-1920x1080-2.jpg" alt="Castle" width="1100" height="500">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="assets/images/bg-1920x1080-3.jpg" alt="Tree" width="1100" height="500">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="assets/images/placeholder-1366x768.jpg" alt="Tree" width="1100" height="500">
+                </div>
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#demo" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+
+            <div class="carousel-caption">
+                    <h3>Press Any Letter to Guess</h3>
+                    <!-- !!!!!!!! JS add score counter!!!!!!!! -->
+                    <h3>Wins: <span class="wins"></span></h3>
+                    <h3>Loses: <span class="loses"></span></h3>
+
+                    <!-- btn outlign light makes the inside of the button trans parrent -->
+                    <button type="button" class="btn btn-outline-light btn-lg">New Game</button>
+                    <button type="button" class="btn btn-dark btn-lg">Retry</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Display word section -->
+    <div class="container game-time">
+            <div id="hang-word" class="spacer jumbotron bg-dark text-center"></div>
+    </div>
+
+
+    <div class="container game-time">
+        <div class="row">
+            <div class="jumbotron col-sm-12 col-md-6" id="hanged-pic">
+                    <img src="assets/images/0.png" alt="450x317" class="img-fluid">
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <!-- last key pressed -->
+                <div class="card bg-dark">
+                    <h5 class="card-header">Key Pressed</h5>
+                    <div class="card-body">
+                        <span id="key-press"></span>
+                        <p>DELETE THIS LATER</p>
+                    </div>
+                </div>
+
+                <!-- array of all wrong keys -->
+                <div class="card bg-dark">
+                    <h5 class="card-header">Incorrect Guesses</h5>
+                    <div class="card-body">
+                        <span id="key-wrong"></span>
+                        <p>DELETE THIS LATER</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    
+
+
+
+
+
+
+
+    <!-- !!!!!!!!!!!!!! Will Appear when you Win !!!!!!!!!!!!!!! -->
+    <div class="container post-win">
+        <img src="assets/images/game-win-img.jpg" alt="Game start img" class="img-fluid">
+        <div class="post-caption">
+                <h3>You are a WINNER!!</h3>
+                <button type="button" class="btn btn-outline-light btn-lg">New Game</button>
+                <button type="button" class="btn btn-outline-light btn-lg">Reset</button>
+        </div>
+    </div>
+    
+    
+
+
+
+
+
+
+
+    <!-- !!!!!!!!!!!!!! Will Appear when you Lose!!!!!!!!!!!!!!! -->
+    <div class="container post-lose">
+        <img src="assets/images/game-lose-img.jpg" alt="Game start img" class="img-fluid">
+        <div class="post-caption">
+                <h3>YOU LOSE!!</h3>
+                <button type="button" class="btn btn-outline-light btn-lg">Start Game</button>
+        </div>
+    </div>
+    
+        
+
+    
+    <script src="assets/javascript/game.js"></script>
+</body>
+</html>

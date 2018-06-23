@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css?family=Eater|Indie+Flower|Poppins');
+
+:root {
+    /* fonts */
+    --straight:'Poppins', sans-serif;
+    --blood: 'Eater', cursive;
+    --indian: 'Indie Flower', cursive; /*like hang writing*/
+
+
+    /* coloring */
+    --headers:#ca8f8f;
+    --bords: 1px solid #ccc;
+    --bordW: 1px solid #343a40;
+    --tranBack: rgba(39, 38, 38, 0.4);
+    --marg: 40px auto;
+
+    /* affects */
+    --tshadow: 3px 2px 8px #000;
+    --twoBtnsz: 300px;
+
+}
+
+
+html, body {
+    font-family: var(--straight);
+    background-color: #333;
+}
+
+.container, {
+    width: 70%;
+    /* margin: var(--marg); */
+}
+
+.spacer::after {
+    content: ' ';
+    clear: both;
+    display: block;
+}
+
+
+
+
+
+/* Game pages -- comment out display: non to see page */
+.pre-game {
+    display: none;
+}
+
+
+.game-time {
+    /* display: none; */
+}
+
+
+.post-win {
+    display: none;
+}
+
+.post-lose {
+    display: none;
+}
+
+
+
+
+
+
+
+/* pre and post Game styling */
+.pre-game, .post-win, .post-lose {
+    height: 100vh;
+    position: relative;
+}
+
+.pre-caption, .post-caption {
+    position: absolute;
+    top: 25%;
+    transform: translateY(-50%);
+    background-color: var(--tranBack);
+    right: 15%;
+    left: 15%;
+    z-index:10;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    color: #fff;
+    text-align: center;
+}
+
+.pre-caption h3, .post-caption h3 {
+    text-shadow: var(--tshadow);
+    color: var(--headers);
+    font-weight: bolder;
+    margin-bottom: 20px;
+}
+
+.pre-caption button {
+    width: 40%;
+}
+
+
+
+/* Game end */
+.post-caption h3 {
+    font-size: 50px;
+}
+
+.post-caption button {
+    width: var(--twoBtnsz);
+}
+
+.post-lose .post-caption h3 {
+    color: #701515;
+    font-family: var(--blood);
+    font-size: 70px;
+    font-weight: normal;
+}
+
+
+
+
+
+
+/* nav bar */
+.navbar {
+    padding: .8rem;
+    /* min-width: 696px; */
+    border-bottom: var(--bords);
+    width: 100%;
+}
+
+.navbar-nav li {
+    padding-right: 20px;
+}
+
+.navbar-brand h1 {
+    color: var(--headers);
+    text-shadow: var(--tshadow);
+}
+
+
+
+
+
+
+
+/* carrosel */
+.carousel-inner img {
+    width: 100%;
+    height: 100%;
+    border: var(--bords);
+}
+
+.carousel-caption {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--tranBack);
+}
+
+.carousel-caption h3 {
+    text-shadow: var(--tshadow);
+    font-size: 2.5rem;
+}
+
+.carousel-caption h3:first-child {
+    color: var(--headers);
+    font-weight: bolder;
+}
+
+.carousel-caption .btn {
+    margin-top: 15px;
+    width: var(--twoBtnsz);
+    padding: 8px 20px;
+}
+
+
+
+
+/* Word guess area */
+
+#hang-word {
+    display: block;
+    width: 100%;
+    border: var(--bords);
+}
+
+#hang-word span {
+    font-size: 35px;
+    padding: 3px 12px;
+    margin: 20px; 
+    color: #fff;
+    font-family: var(--indian);
+    line-height: 2.5;
+    font-weight: bold;
+}
+
+.space {
+    background-color: #9797d8;
+}
+
+
+
+
+/* hang man pic */
+#hanged-pic {
+    border: var(--bordW);
+    background-color: #ccc;
+}
+
+
+
+
+/* card section*/
+.card {
+    color: #fff;
+    margin-bottom: 40px;
+    border: var(--bords);
+}
+
+.card-header {
+    border-bottom: var(--bords);
+}
+
+
+
+
+@media (min-width: 768px) {
+    :root {
+        --twoBtnsz:140px;
+    }
+
+    .container {
+        width: 90%;
+    }
+    
+}
+
+@media (min-width: 576px) {
+    .jumbotron {
+        padding: 50px 25px;;
+    }
+
+    .container {
+        max-width: 100%;
+        margin: var(--marg);
+    }
+}
