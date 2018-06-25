@@ -29,7 +29,7 @@
     <!-- nav bar -->
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><h1>Anime Hangman</h1></a>
+            <a class="navbar-brand" href="#"><h1>Anime Hangman4</h1></a>
 
             <!-- create a dropdown button for menue when screen gets too small -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
@@ -41,9 +41,14 @@
             <!-- ml-auto: pushes the menu to list to the right side when is is not collapse -->
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active"><a href="https://kitkat0202.github.io/" class="nav-link">Home</a> </li>
-                    <li class="nav-item"><a href="https://kitkat0202.github.io/bootstrap-portfolio/" class="nav-link">Bootstrap</a> </li>
-                    <li class="nav-item"><a href="https://kitkat0202.github.io/responsive-portfolio/" class="nav-link">Responsive</a> </li>
-                    <li class="nav-item"><a href="https://github.com/kitkat0202" class="nav-link">GitHub</a> </li>
+                    <li class="nav-item dropdown bg-dark">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Other Projects</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a href="https://kitkat0202.github.io/bootstrap-portfolio/" class="nav-link">Bootstrap</a> 
+                            <a href="https://kitkat0202.github.io/responsive-portfolio/" class="nav-link">Responsive</a>
+                            <a href="https://github.com/kitkat0202" class="nav-link">GitHub</a>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -59,10 +64,13 @@
 
 <!-- !!!!!!!!!!!!!! Will Diappear when game starts!!!!!!!!!!!!!!! -->
     <div class="container pre-game">
-        <img src="assets/images/game-start-img.jpg" alt="Game start img" class="img-fluid">
-        <div class="pre-caption">
-                <h3>Click Button to Start</h3>
-                <button type="button" class="btn btn-outline-light btn-lg">Start Game</button>
+        <div class="carousel-inner">
+            <img src="assets/images/game-start-img.jpg" alt="Game start img" class="img-fluid">
+            <div class="pre-caption">
+                    <h3>Click Button to Start</h3>
+                    <p>WARNING: There will be music when button is pushed</p>
+                    <button type="button" class="btn btn-outline-light btn-lg" id="start-game">Start Game</button>
+            </div>
         </div>
     </div>
 
@@ -76,7 +84,7 @@
 
 <!-- !!!!!!!!!!!!!! Start Here only appears when Game starts!!!!!!!!!!!!!!! -->
     <!-- Image slides -->
-    <div class="container game-time">
+    <div class="container game-time disappear">
         <div id="demo" class="carousel slide" data-ride="carousel">
 
             <!-- Indicators -->
@@ -116,44 +124,44 @@
             <div class="carousel-caption">
                     <h3>Press Any Letter to Guess</h3>
                     <!-- !!!!!!!! JS add score counter!!!!!!!! -->
-                    <h3>Wins: <span class="wins"></span></h3>
-                    <h3>Loses: <span class="loses"></span></h3>
+                    <h3>Wins:  <span id="wins"></span></h3>
+                    <h3>Loses:  <span id="loses"></span></h3>
 
                     <!-- btn outlign light makes the inside of the button trans parrent -->
-                    <button type="button" class="btn btn-outline-light btn-lg">New Game</button>
-                    <button type="button" class="btn btn-dark btn-lg">Retry</button>
+                    <button type="button" class="btn btn-outline-light btn-lg" id="newGame-btn1">New Game</button>
+                    <button type="button" class="btn btn-dark btn-lg" id="resetGame-btn1">Reset</button>
             </div>
         </div>
     </div>
 
 
     <!-- Display word section -->
-    <div class="container game-time">
+    <div class="container game-time disappear">
             <div id="hang-word" class="spacer jumbotron bg-dark text-center"></div>
     </div>
 
-
-    <div class="container game-time">
+    <!-- Display Information -->
+    <div class="container game-time disappear">
         <div class="row">
-            <div class="jumbotron col-sm-12 col-md-6" id="hanged-pic">
-                    <img src="assets/images/0.png" alt="450x317" class="img-fluid">
+            <div class="jumbotron col-4" id="hanged-pic">
+                    <img id="hanged-man-img" src="assets/images/0.png" alt="450x317" class="img-fluid">
+                    <p>Lives Left: <span id="life-counter"></span></p>
             </div>
-            <div class="col-sm-12 col-md-6">
+            <div class="col-8">
                 <!-- last key pressed -->
                 <div class="card bg-dark">
                     <h5 class="card-header">Key Pressed</h5>
-                    <div class="card-body">
-                        <span id="key-press"></span>
-                        <p>DELETE THIS LATER</p>
+                    <div class="card-body row">
+                        <div class="col-12 text-center">
+                            <span id="key-press"></span>
+                        </div>
                     </div>
                 </div>
 
                 <!-- array of all wrong keys -->
                 <div class="card bg-dark">
                     <h5 class="card-header">Incorrect Guesses</h5>
-                    <div class="card-body">
-                        <span id="key-wrong"></span>
-                        <p>DELETE THIS LATER</p>
+                    <div class="card-body" id="key-wrong">
                     </div>
                 </div>
 
@@ -170,12 +178,14 @@
 
 
     <!-- !!!!!!!!!!!!!! Will Appear when you Win !!!!!!!!!!!!!!! -->
-    <div class="container post-win">
-        <img src="assets/images/game-win-img.jpg" alt="Game start img" class="img-fluid">
-        <div class="post-caption">
-                <h3>You are a WINNER!!</h3>
-                <button type="button" class="btn btn-outline-light btn-lg">New Game</button>
-                <button type="button" class="btn btn-outline-light btn-lg">Reset</button>
+    <div class="container post-win disappear">
+        <div class="carousel-inner">
+            <img src="assets/images/game-win-img.jpg" alt="Game start img" class="img-fluid">
+            <div class="post-caption">
+                    <h3>You are a WINNER!!</h3>
+                    <button type="button" class="btn btn-outline-light btn-lg" id="newGame-btn2">New Game</button>
+                    <button type="button" class="btn btn-dark btn-lg" id="resetGame-btn2">Reset</button>
+            </div>
         </div>
     </div>
     
@@ -188,17 +198,48 @@
 
 
     <!-- !!!!!!!!!!!!!! Will Appear when you Lose!!!!!!!!!!!!!!! -->
-    <div class="container post-lose">
-        <img src="assets/images/game-lose-img.jpg" alt="Game start img" class="img-fluid">
-        <div class="post-caption">
-                <h3>YOU LOSE!!</h3>
-                <button type="button" class="btn btn-outline-light btn-lg">Start Game</button>
+    <div class="container post-lose disappear">
+        <div class="carousel-inner">
+            <img src="assets/images/game-lose-img.jpg" alt="Game start img" class="img-fluid">
+            <div class="post-caption">
+                    <h3>YOU LOSE!!</h3>
+                    <button type="button" class="btn btn-outline-light btn-lg" id="newGame-btn3">New Game</button>
+                    <button type="button" class="btn btn-dark btn-lg" id="resetGame-btn3">Reset</button>
+            </div>
         </div>
     </div>
-    
-        
 
-    
-    <script src="assets/javascript/game.js"></script>
+
+    <!-- Audio -->
+    <audio id="bg-audio" loop>
+        <source src="assets/sound/kh-dearly-beloved.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Audio Control -->
+    <div class="container">
+        <div class="jumbotron bg-dark row" id="btn-container">
+            <div class="col-4"><button type="button" class="btn btn-outline-light btn-lg" onclick="playAudio()">Play Music</button></div>
+            <div class="col-4"><button type="button" class="btn btn-outline-light btn-lg" onclick="pauseAudio()">Pause Music</button></div>
+            <div class="col-4"><button type="button" class="btn btn-outline-light btn-lg" onclick="stopAudio()">Stop Music</button></div>
+        </div>
+    </div>
+
+
+    <!-- Used to navigate the disappearing Navs -->
+    <!-- <div class="container">
+        <div class="jumbotron bg-dark row" id="btn-container">
+            <div class="col-3"><button type="button" class="btn btn-outline-light btn-lg" id="preGame">Pre-game</button></div>
+            <div class="col-3"><button type="button" class="btn btn-outline-light btn-lg" id="gameTime">Game Page</button></div>
+            <div class="col-3"><button type="button" class="btn btn-outline-light btn-lg" id="win">Win Game</button></div>
+            <div class="col-3"><button type="button" class="btn btn-outline-light btn-lg" id="lose">Lose</button></div>
+        </div>
+    </div> -->
+
+
+
+    <!-- JQuery Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="assets/javascript/game2.js"></script>
 </body>
 </html>

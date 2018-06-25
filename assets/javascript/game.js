@@ -4,7 +4,9 @@
 
 //Necessary Golbal variables
 var hangWords = ["naruto", "one piece", "death note", "fullmetal alchemist", "pokemon", "digimon", "dragonball z", "sword art online", "bleach", "guilty crown"];
-var chosenWord = hangWords[Math.floor(Math.random() * hangWords.length)].toLocaleUpperCase();
+
+
+chosenWord = hangWords[Math.floor(Math.random() * hangWords.length)].toLocaleUpperCase();
 var correctLetters = [];
 var incorrectLetters = [];
 
