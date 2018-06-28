@@ -1,326 +1,359 @@
-@import url('https://fonts.googleapis.com/css?family=Eater|Indie+Flower|Poppins');
+@import url('https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope|Cabin+Sketch|Delius|Nanum+Brush+Script');
 
 :root {
+    /* spaces */
+    --padd: 25px;
+    --marg: 40px 0px;
+    --main-color: #8f6565;
+    --main-col-opa: #8f656557;
+    --shadow: 3px 5px 10px;
+    --trans: .35s ease-in-out;
+
     /* fonts */
-    --straight:'Poppins', sans-serif;
-    --blood: 'Eater', cursive;
-    --indian: 'Indie Flower', cursive; /*like hang writing*/
-
-
-    /* coloring */
-    --headers:#ca8f8f;
-    --bords: 1px solid #ccc;
-    --bordW: 1px solid #343a40;
-    --tranBack: rgba(39, 38, 38, 0.4);
-    --marg: 40px auto;
-
-    /* affects */
-    --tshadow: 3px 2px 8px #000;
-    --twoBtnsz: 200px;
+    --title: 'Cabin Sketch', cursive;
+    --span: 'Annie Use Your Telescope', cursive;
+    --body-font: 'Delius', cursive;
 
 }
 
-/* Extra small devices (portrait phones, less than 576px) */
-@media (min-width: 576px) {
-    .jumbotron {
-        padding: 25px 12px;;
-    }
-
-    .container {
-        min-width: 600px;
-        margin: var(--marg);
-    }
-
-    /* img {
-        min-width: 600px;
-    } */
-}
-
-
-/* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) and (max-width: 767.98px) {
-    :root {
-        --twoBtnsz:140px;
-    }
-
-    .container {
-        min-width:  600px;
-    }
-    
-}
-
-/* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) and (max-width: 991.98px) {
-    .container {
-        width: 90%;
-    }
-}
-
-/* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) and (max-width: 1199.98px) { 
-
-}
-
-
-
-
-
-html, body {
-    font-family: var(--straight);
-    background-color: #333;
-}
-
-.container, {
-    width: 70%;
-    position: relative;
-    margin: var(--marg);
-}
-
-.spacer::after {
-    content: ' ';
-    clear: both;
+/* DELETE LATER */
+/* #intro {
     display: block;
 }
 
-
-
-/* 4 different pages -- buttons at bottom to toggle between pages*/
-.disappear {
+.game-time {
     display: none;
 }
 
-
-
-
-
-
-/* nav bar */
-.navbar {
-    padding: .8rem;
-    /* min-width: 696px; */
-    border-bottom: var(--bords);
-    width: 100%;
+#win {
+    display: none;
 }
 
-.navbar-nav li {
-    padding-right: 20px;
-}
+#lose {
+    display: none;
+} */
 
-.navbar-brand h1 {
-    color: var(--headers);
-    text-shadow: var(--tshadow);
-}
 
-.dropdown-menu {
-    background-color: #343a40;
-    border: var(--bords);
-}
-
-.dropdown-menu a {
-    margin: 10px;
+.disappear {
+    display: none !important;
 }
 
 
 
 
+/* Site Body */
+html, body {
+    background-color: rgb(0, 0, 0);
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    color: #fff;
+    text-shadow: var(--shadow) var(--main-color);
+    font-family: var(--body-font);
+}
 
-
-/* top Pic */
-
-.pre-game, 
-.post-win, 
-.post-lose {
+.container {
     position: relative;
-}
-
-.carousel-inner img,  {
     width: 100%;
     height: 100%;
-    border: var(--bords);
-    vertical-align: middle;
+    margin: 0;
 }
 
-.post-lose img, 
-.post-win img, 
-.pre-game img {
-    object-fit: cover;
+#background-img {
+    width: 100%;
+    position: fixed;
+    opacity: .5;
+    overflow: hidden;
 }
 
-.carousel-caption, 
-.pre-caption, 
-.post-caption  {
+/* function only classes */
+.float {
+    float:left;
+}
+
+.clear::after {
+    content: "";
+    display:block;
+    clear:both;
+}
+
+
+
+
+/* FONTS */
+/* Anime Hangman */
+h1 {
+    font-size: 60px;
+    margin-bottom: 50px;
+    font-family: var(--title);
+}
+
+/* Center Word Display */
+h2 {
+    font-size: 35px;
+    text-align: center;
+    line-height: 2;
+}
+
+/* Scores */
+h3 {
+    font-size: 25px;
+}
+
+/* Key press and Incorrect guesses */
+h5 {
+    font-size: 25px;
+    text-decoration: underline;
+    line-height: 50px;
+}
+
+hr {
+    width: 60%;
+}
+
+/* Div positioning */
+#left, 
+#right,
+.middle {
+    width: 26%;
+    position: relative;
+    padding: var(--padd);
+    box-sizing: border-box;
+}
+
+.middle {
+    width: 48%;
+    margin-top: 150px;
+}
+
+
+
+
+
+/* Left */
+#hint-img {
     position: absolute;
-    top: 40%;
-    transform: translateY(-50%);
-    background-color: var(--tranBack);
+    top: 20px;
+    left: 250px;
+    width: 200px;
 }
 
-.pre-caption, 
-.post-caption {
-    /* top: 25%; */
-    right: 15%;
-    left: 15%;
-    z-index:10;
-    padding-top: 40px;
-    padding-bottom: 40px;
+#score {
+    margin: var(--marg);
+    background-color: var(--main-col-opa);
+    border-radius: 5px;
+    padding: var(--padd);
+    line-height: 40px;
+    text-shadow: none;
+    width: 120px;
+}
+
+#key-press-div,
+#incorrect-div {
+    background-color: #ffffff57;
+    height: 200px;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#key-press-div span {
+    font-size: 70px;
+    font-weight: bolder;
+    text-shadow: var(--shadow) var(--main-color);
+    line-height: 100px;
+}
+
+#incorrect-div {
+    height: 500px;
+    position: relative;
+    padding-top: 20px;
+}
+
+#grow {
+    position: absolute;
+    width: 100%;
+    /* height: 50%; */
+    bottom: 0;
+    background-color: var(--main-color);
+    opacity: .6;
+}
+
+
+
+
+
+
+.btn {
+    background-color: var(--main-color);
     color: #fff;
+    text-shadow: 1px 1px 2px #000;
+    width: 48%;
+    margin: auto;
+    padding: 10px;
+    border: 2px solid #fff;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color var(--trans),
+                color var(--trans);
+}
+
+.btn:hover {
+    background-color: #fff;
+    color: var(--main-color);
+    text-shadow: none;
+}
+
+
+
+
+
+/* INTRO */
+#intro {
+    text-align: center;
+    background-color: var(--main-col-opa);
+    border-radius: 8px;
+    text-shadow: 0 0 20px #000,
+                 0 0 30px #000;
+    color: #fff;
+}
+
+#intro p {
+    font-size: 17px;
+    line-height: 1.5;
+}
+
+#intro button {
+    background-color: rgba(0, 0, 0, 0);
+    text-shadow: 1px 2px 4px #000;
+    color: #fff;
+    font-size: 25px;
+    font-weight: bold;
+    box-shadow: var(--shadow) #000;
+    margin: 30px auto;
+    padding: 25px;
+    width: 45%;
+    border: 5px solid #fff;
+    border-radius: 8px;
+    transition: background-color var(--trans);
+}
+
+#intro button:hover {
+    background-color: var(--main-color);
+    color: #fff;
+    border: 5px solid #fff;
+    text-shadow: none;
+}
+
+
+
+
+/* Center */
+#hang-word {
+    margin: 0 auto;
+    width: 100%;
     text-align: center;
 }
 
-.carousel-caption h3 {
-    text-shadow: var(--tshadow);
-    font-size: 27px;
-}
-
-.pre-caption h3, .post-caption h3 {
-    text-shadow: var(--tshadow);
-    color: var(--headers);
-    font-weight: bolder;
-    margin-bottom: 20px;
-    font-size: 400%;
-}
-
-.pre-caption p {
-    text-shadow: var(--tshadow);
-}
-
-.post-lose .post-caption h3 {
-    color: #701515;
-    font-family: var(--blood);
-    font-weight: normal;
-    text-shadow: 3px 2px 8px #a7a7a7;
-    font-size: 500%;
-    margin-top: -50px;
-}
-
-.carousel-caption h3:first-child {
-    color: var(--headers);
-    font-weight: bolder;
-    font-size: 200%;
-}
-
-.carousel-caption .btn,
-.pre-caption button,
-.post-caption button {
-    margin: 15px;
-    width: var(--twoBtnsz);
-    padding: 8px 20px;
-}
-
-.pre-caption button {
-    width: 40%;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-/* Word guess area */
-#hang-word {
-    display: block;
-    width: 100%;
-    border: var(--bords);
-}
-
 .letter {
-    font-size: 30px;
-    padding: 3px 15px;
+    font-size: 50px;
+    padding: 3px 10px;
     margin: 10px 0px; 
-    color: #fff;
-    font-family: var(--indian);
-    line-height: 2.5;
+    line-height: 1.5;
     font-weight: bold;
 }
 
-.space {
-    background-color: #9797d8;
+#key-press,
+#hang-word span,
+#key-wrong span {
+    font-family: var(--span);
+}
+
+.shrink {
+    font-size: 20px;
 }
 
 
 
 
-/* hang man pic */
-#hanged-pic {
-    border: var(--bordW);
-    background-color: #ccc;
+/* Win */
+#win,
+#lose {
+    background-color: #000;
     position: relative;
+    padding: 0;
+    border-radius: 8px;
+    object-fit: contain;
+    height: 400px;
 }
 
-#hanged-man-img {
-    margin: 0 auto;
-}
-
-.col-8 .card {
-    height: 200px;
-    margin-top: 8px; 
-}
-
-#hanged-pic p {
+#win-img,
+#lose-img {
+    width: 100%;
+    height: 100%;
     position: absolute;
-    top: 5px;
-    left: 5px;
-    font-weight: bolder;
+    border-radius: 8px;
+    opacity: .5;
+}
+
+#win h2,
+#lose h2 {
+    position: relative;
+    top: 80px;
+    color: #fd9292;
+    font-size: 90px;
+    font-weight: bold;
+    text-shadow: var(--shadow) #000;
+    opacity: 1;
 }
 
 
 
 
-/* card section*/
-.card {
-    color: #fff;
-    margin-bottom: 40px;
-    border: var(--bords);
-}
-
-.card-header {
-    border-bottom: var(--bords);
-}
-
-.card-body {
-    padding: 0px 10px 0px 10px;
-}
-
-#key-wrong span, #key-press {
-    margin-top: 0;
-    font-family: var(--straight);
+/* Lose */
+#lose h2 {
+    color: #442020;
+    text-shadow: var(--shadow) #fff;
 }
 
 
-#key-press {
-    font-size: 80px;
-} 
-
-
-
-
-/* AUDIO BUTTONS */
-.jumbotron button {
-    width: 200px;
-    box-shadow: var(--tshadow);
-    margin: auto 20px;
+/* Audio */
+.audio-div {
+    padding: var(--padd);
 }
 
-#btn-container {
-    border: var(--bords);
+.audio {
+    margin: var(--marg);
+    width: 150px;
+    border-radius: 50px;
+    opacity: .5;
+    transition: background-color var(--trans),
+                color var(--trans),
+                border var(--trans),
+                opacity var(--trans);
+}
+
+.audio:hover {
+    opacity: 1;
 }
 
 
 
+@media screen and (max-width: 979px)  { 
+    #background-img {
+        width: 200%;
+    }
+}
 
+@media screen and (max-width: 767px)  { 
+    #background-img {
+        
+    }
+}
 
-
-
-
-
-
-
-
-
-
+@media screen and (max-width: 639px)  { 
+    #background-img {
+        
+    }
+}
