@@ -300,7 +300,7 @@ function newGame() {
   ransomdomize();
   createSpan();
   
-  console.log(chosenWord); //CHEAT -- GET THE ANSWERS IN CONCOLE
+  //console.log(chosenWord); //CHEAT -- GET THE ANSWERS IN CONCOLE
   
 };
 
@@ -328,12 +328,14 @@ function reset() {
   $("#newGame-btn").click(function(){
     $("#intro, #win, #lose").addClass("disappear");
     $(".game-time").removeClass("disappear");
+    backgroundPic()
     newGame();
   });
 
   $("#resetGame-btn").click(function(){
     $(".game-time, #win, #lose").addClass("disappear");
     $("#intro").removeClass("disappear");
+    backgroundPic()
     reset();
   });
 
