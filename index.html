@@ -19,7 +19,9 @@
         
         <!-- LEFT SIDE -->
         <div id="left" class="float">
-            <h1 id="title">Anime <br> Word <br> Guess</h1>
+            <div class="title-div">
+                <h1 id="title">Anime <br> Word <br> Guess</h1>
+            </div>
 
             <!-- Score -->
             <div id="score">
@@ -42,13 +44,15 @@
             <p>Press the start button to start</p>
             <p>WARNING: There will be music when button is pushed</p>
             <button type="button" id="start-game" class="btn">Start Game</button>
+            <div class="intro-img-div">
+                <img src="assets/images/mini/sw-5.png" alt="welcome">
+            </div>
         </div>
 
 
 
         <!-- CENTER - Blank Letters -->
         <div id="center" class="middle float game-time disappear">
-            <input type="text" placeholder="Click here to bring up keybord" class="only-small input-keybord">
             <div id="health-bar">
                 <h6>Lives:  <span id="lives"></span></h6>
                 <div id="grow"></div>
@@ -96,6 +100,10 @@
             <source src="assets/sound/kh-dearly-beloved.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
+    </div>
+
+    <div class="only-small">
+        <h2>Apologies this screen is too small to view the game please find a larger screen</h2>
     </div>
 
   

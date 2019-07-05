@@ -4,9 +4,8 @@
     /* spaces */
     --padd: 25px;
     --marg: 40px 0px;
-    /* --main-color: #775186; */
-    --main-color: #93759e;
-    --main-col-opa: #4e6769a2;
+    --main-color: #ffd7c4;
+    --main-col-opa: rgba(209, 176, 161, 0.63);
     --shadow: 3px 5px 10px;
     --trans: .35s ease-in-out;
 
@@ -15,7 +14,7 @@
     --span: 'Annie Use Your Telescope', cursive;
     --body-font: 'Raleway', sans-serif;
     --font-main-color: #464646;
-    --font-sec-color: #4a6580;
+    --font-sec-color: #ffffff;
 
 }
 
@@ -26,11 +25,12 @@
 /* //// Site Body //// */
 /* /////////////////// */
 html, body {
-    background-color: #fffbac;
-    /* background-color: #C5DCA0; */
+    background-color: #889FB6;
     overflow: hidden;
-    color: var(--font-main-color);
+    color: var(--font-sec-color);
+    text-shadow: 0 0 2px #000;
     font-family: var(--body-font);
+    height: 100vh;
 }
 
 .container {
@@ -66,44 +66,6 @@ html, body {
 
 
 
-/* ///////////////// */
-/* ///// FONTS ///// */
-/* ///////////////// */
-/* Anime Hangman */
-h1 {
-    font-size: 80px;
-    margin-bottom: 50px;
-    font-family: var(--title);
-    color: var(--main-color);
-    text-shadow: 0 0 1px #29292993;
-}
-
-/* Center Word Display */
-h2 {
-    font-size: 35px;
-    text-align: center;
-    line-height: 50px;
-}
-
-/* Title: "Incorrect Guess" */
-h5 {
-    font-size: 30px;
-    font-weight: bolder;
-    letter-spacing: 2px;
-    line-height: 40px;
-}
-
-/* Title: "Last Key Pressed", "Hint" */
-h6 {
-    font-size: 20px;
-}
-
-#incorrect-div h5 {
-    border-bottom: 1px solid var(--font-main-color);
-}
-
-
-
 /* ///////////////////// */
 /* // Div positioning // */
 /* ///////////////////// */
@@ -131,11 +93,24 @@ h6 {
 /* ////////////// */
 /* //// Left //// */
 /* ////////////// */
+
+/* Title: "Anime Word Guess" */
+h1 {
+    font-size: 80px;
+    margin-bottom: 30px;
+    font-family: var(--title);
+    color: var(--main-color);
+    text-shadow: 0 0 2px #29292993;
+}
+
+.title-div {
+    border-bottom: 1px solid var(--font-main-color);
+}
+
 #score {
     margin: 30px auto;
     padding: var(--padd);
     line-height: 40px;
-    text-shadow: none;
     font-weight: bolder;
     font-size: 25px;
 }
@@ -148,19 +123,19 @@ h6 {
 
 .btn {
     background-color: var(--main-color);
-    color: #fff;
-    text-shadow: 1px 1px 2px #000;
+    color: var(--font-main-color);
+    text-shadow: 1px 1px 2px #fff;
     width: 100%;
     margin: 5px 0px;
     padding: 10px;
-    border: 2px solid var(--main-color);
+    border: none;
     font-weight: bold;
     cursor: pointer;
     transition: all var(--trans);
 }
 
 .btn:hover {
-    background-color: #fff;
+    background-color: var(--font-main-color);
     color: var(--main-color);
     text-shadow: none;
 }
@@ -206,7 +181,7 @@ h6 {
     color: #fff;
     font-size: 25px;
     font-weight: bold;
-    box-shadow: var(--shadow) #000;
+    box-shadow: 1px 2px 4px #000;
     margin: 30px auto;
     padding: 12px 25px;
     width: 45%;
@@ -225,6 +200,19 @@ h6 {
     margin: 35px auto 25px auto;
 }
 
+.intro-img-div {
+    position: absolute;
+    width: 250px;
+    bottom: -80px;
+    right: -120px;
+
+}
+
+.intro-img-div img {
+    width: 100%;
+    object-fit: contain;
+}
+
 
 /* //////////////// */
 /* //// Center //// */
@@ -234,8 +222,8 @@ h6 {
     width: 100%;
     height: 5px;
     border-radius: 10px;
-    border: 1px solid #504e4e;
-    background-color: #97935e57;
+    border: 1px solid var(--font-main-color);
+    background-color: #aaa66c56;
     margin-top: 20px;
     margin-bottom: 60px;
 }
@@ -256,6 +244,14 @@ h6 {
     z-index: 99;
 }
 
+/* Center Word Display */
+h2 {
+    font-size: 35px;
+    text-align: center;
+    line-height: 50px;
+}
+
+/* Chalk board */
 #hang-word {
     margin: 40px auto;
     width: 100%;
@@ -265,6 +261,10 @@ h6 {
     background-color: #333;
     box-sizing: border-box;
     box-shadow: 3px 3px 2px rgba(70, 70, 70, 0.623);
+}
+
+#hang-word span {
+    font-family: var(--span);
 }
 
 .letter {
@@ -279,12 +279,18 @@ h6 {
     color: #fff;
 }
 
+/* incorrect words */
 #key-wrong .letter {
     font-size: 30px;
 }
 
-#hang-word span {
-    font-family: var(--span);
+/* Title: "Incorrect Guess" */
+h5 {
+    font-size: 30px;
+    font-weight: bolder;
+    letter-spacing: 2px;
+    line-height: 40px;
+    border-bottom: 1px solid var(--font-main-color);
 }
 
 .shrink {
@@ -307,6 +313,11 @@ h6 {
 /* ///////////////// */
 /* ///// Right ///// */
 /* ///////////////// */
+/* Title: "Last Key Pressed", "Hint" */
+h6 {
+    font-size: 20px;
+}
+
 #key-press-div {
     text-align: center;
 }
@@ -317,8 +328,8 @@ h6 {
     height: 120px;
     width: 120px;
     border-radius: 50%;
-    border: 5px solid #fff;
-    box-shadow: 0 0 2px #000;
+    border: 5px solid var(--font-main-color);
+    box-shadow: 0 0 2px #fff;
     opacity: .85;
 }
 
@@ -327,8 +338,8 @@ h6 {
     font-weight: bolder;
     line-height: 120px;
     height: 200px;
-    color: #fff;
-    text-shadow: 0 0 4px #111;
+    color: var(--font-main-color);
+    text-shadow: 0 0 4px #fff;
 }
 
 #hint-div {
@@ -383,8 +394,12 @@ h6 {
         margin-bottom: 30px;
     }
 
-    #score {
-        margin: 30px auto;
+    #hang-word {
+        margin: 20px auto 10px auto;
+    }
+
+    .letter {
+        line-height: 1.3;
     }
 }
 
@@ -396,28 +411,107 @@ h6 {
     }
 
     h1 {
-        font-size: 30px;
+        font-size: 50px;
         margin-bottom: 30px;
     }
 
     #score {
-        margin: 30px auto;
+        margin: 20px auto;
+        padding: 10px;
+        font-size: 20px;
+    }
+
+    #hang-word {
+        margin: 20px auto 10px auto;
+    }
+
+    .letter {
+        padding: 20px 8px;
+        margin: 8px 0px; 
+        line-height: 1.5;
+    }
+    
+    #hang-word .letter {
+        font-size: 40px;
+    }
+    
+    #key-wrong .letter {
+        font-size: 28px;
+    }
+}
+
+@media screen and (max-width: 685px)  { 
+    #left, 
+    #right {
+        width: 30%;
+        padding: 5px;
+        min-width: 125px;
+    }
+
+    .middle {
+        width: 70%;
+    }
+
+    #left {
+        height: 320px;
+    }
+
+    #right {
+        position: absolute;
+        top: 320px;
+        left: 0;
+    }
+
+
+    /* Left Side */
+    h1 {
+        font-size: 40px;
+        margin-bottom: 10px;
+    }
+
+    #score {
+        margin: 5px auto;
+        padding: 5px 20px;
+        font-size: 18px;
+        line-height: 28px;
+    }
+
+    .btn {
+        padding: 8px;
+        margin: 2px;
+    }
+
+    /* Right Side */
+    #key-press-circle {
+        margin: 10px auto;
+        height: 80px;
+        width: 80px;
+    }
+
+    #key-press-div span {
+        font-size: 55px;
+        line-height: 80px;
+    }
+
+    #hint-div {
+        margin-top: 20px;
+    }
+
+    #hint-img {
+        width: auto;
+        max-width: 190px;
+        max-height: 230px;
+    }
+
+}
+
+@media screen and (max-width: 494px)  { 
+    .container {
+        display: none;
     }
 
     .only-small {
         display: block;
+        margin: 20px 5px;
     }
-
-    .input-keybord {
-        margin: -40px auto 20px auto;
-        background-color: #00000000;
-        font-size: 20px;
-        color: #00000000;
-        border: none;
-        
-    }
-}
-
-@media screen and (max-width: 639px)  { 
-
 }

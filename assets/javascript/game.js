@@ -72,7 +72,7 @@ $(function() {
   $("#key-wrong").empty();
   $("#hint-img").attr("src", "#").hide(); // clear hint image
   $("#lives").html(lives);
-  $("#word-display2").html("Press Any Key To Start Hangman").css("color", "#464646");
+  $("#word-display2").html("Press Any Key To Start Hangman").css("color", "#fff");
 });
 
 
@@ -103,7 +103,7 @@ function clearOut() {
   $("#key-wrong").empty();
   $("#hint-img").attr("src", "#").hide(); // clear hint image
   $("#lives").html(lives);
-  $("#word-display2").html("Press Any Key To Start Hangman").css("color", "#464646");
+  $("#word-display2").html("Press Any Key To Start Hangman").css("color", "#fff");
   $("#grow").css({"width": "100%"});
 }
 
@@ -120,7 +120,7 @@ function wisdom() {
       }, 1000);
       break;
     case 9:
-      $("#word-display2").html("It's OVER!! It's OVER!! My Life is over").css("color", "red");
+      $("#word-display2").html("It's OVER!! It's OVER!! My Life is over").css("color", "#a0334c");
       $("#hint-img").attr("src", "assets/images/mini/sw-3.png");
       setTimeout(function() {
         $("#hint-img").attr("src", chosenImg);
