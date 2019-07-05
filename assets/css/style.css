@@ -352,41 +352,16 @@ h6 {
 /* //////////////////// */
 #win,
 #lose {
-    position: relative;
     padding: 0;
-    object-fit: contain;
     height: 400px;
 }
 
 #win-img,
 #lose-img {
     width: 100%;
-    height: 100%;
-    position: absolute;
-    border: 5px solid var(--main-col-opa);
+    border: 5px solid #fff;
+    box-shadow: 0 0 1px #000;
     box-sizing: border-box;
-    opacity: .7;
-}
-
-#win h2,
-#lose h2 {
-    position: relative;
-
-    font-size: 80px;
-    letter-spacing: 2px;
-    font-weight: bold;
-    text-shadow: 0 0 5px #000;
-    opacity: 1;
-}
-
-#win h2 {
-    color: #ffdfd7;
-    top: 40px;
-}
-
-#lose h2 {
-    color: #EDF2F4;
-    top: 155px;
 }
 
 
