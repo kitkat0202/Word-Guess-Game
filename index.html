@@ -10,30 +10,27 @@
     <!-- My CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- google fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope|Cabin+Sketch|Delius|Nanum+Brush+Script" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope|Cabin+Sketch|Delius|Nanum+Brush+Script" rel="stylesheet"> -->
     
 </head>
 <body>
     <div class="container">
-        <img src="assets/images/bg-1.jpg" alt="background Image" id="background-img">
+        <!-- <img src="assets/images/bg-1.jpg" alt="background Image" id="background-img"> -->
         
         <!-- LEFT SIDE -->
         <div id="left" class="float">
             <h1 id="title">Anime <br> Word <br> Guess</h1>
-            <img id="hint-img">
+
             <!-- Score -->
             <div id="score">
                 <h3>Wins:  <span id="wins"></span></h3>
                 <h3>Loses:  <span id="loses"></span></h3>
             </div>
-            <!-- Show Key Pressed -->
-            <div id="key-press-div" class="game-time disappear">
-                <h5>Key Pressed</h5>
-                <span id="key-press"></span>
-            </div>
             <!-- Audio Control -->
-            <div class="audio-div game-time disappear">
-                <button type="button" class="btn audio" onclick="stopAudio()">Play/Stop Music</button> 
+            <div class="button-div game-time disappear">
+                <button type="button" class="btn game-time disappear" id="newGame-btn">New Game</button>
+                <button type="button" class="btn game-time disappear" id="resetGame-btn">Reset</button>
+                <button type="button" class="btn audio-btn" onclick="stopAudio()">Play/Stop Music</button> 
             </div>
         </div>
 
@@ -51,8 +48,17 @@
 
         <!-- CENTER - Blank Letters -->
         <div id="center" class="middle float game-time disappear">
+            <input type="text" placeholder="Click here to bring up keybord" class="only-small input-keybord">
+            <div id="health-bar">
+                <h6>Lives:  <span id="lives"></span></h6>
+                <div id="grow"></div>
+            </div>
             <h2 id="word-display2">Press Any Key To Start Hangman</h2>
             <div id="hang-word" class="game-time disappear"></div>
+            <div id="incorrect-div" class="game-time disappear">
+                <h5 class="card-header">Incorrect Guess</h5>
+                <div class="card-body" id="key-wrong"></div>
+            </div>
         </div>
 
 
@@ -74,16 +80,18 @@
 
         <!-- RIGHT SIDE -->
         <div id="right" class="float clear">
-            <button type="button" class="btn game-time disappear" id="newGame-btn">New Game</button>
-            <button type="button" class="btn game-time disappear" id="resetGame-btn">Reset</button>
-
-            <div id="incorrect-div" class="game-time disappear">
-                <h6>Lives:  <span id="lives"></span></h6>
-                <h5 class="card-header">Incorrect Guess</h5>
-                <div class="card-body" id="key-wrong"></div>
-                <div id="grow"></div>
+            <!-- Show Key Pressed -->
+            <div id="key-press-div" class="game-time disappear">
+                <div id="key-press-circle">
+                    <span id="key-press"></span>
+                </div>
+                <h6>Last Key Pressed</h6>
             </div>
-
+            <!-- Hint Image -->
+            <div id="hint-div" class="game-time disappear">
+                <img id="hint-img" alt="hint"/>
+                <h6>Hint</h6>
+            </div>
         </div>
 
         <!-- Audio -->

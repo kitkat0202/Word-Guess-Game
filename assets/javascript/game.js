@@ -72,26 +72,22 @@ $(function() {
   $("#key-wrong").empty();
   $("#hint-img").attr("src", "#").hide(); // clear hint image
   $("#lives").html(lives);
-  $("#word-display2").html("Press Any Key To Start Hangman").css("color", "#fff");
+  $("#word-display2").html("Press Any Key To Start Hangman").css("color", "#464646");
 });
 
 
 
 //FUNCTIONS
 /////////////////////////  FUN DOM MANIPULATION   /////////////////////
-// choose a randome background ///////////////// CHECK IF WORKS!!
-function backgroundPic() {
-  var x = Math.floor(Math.random() * 20) + 1;
-  $("#background-img").attr("src",`assets/images/bg-${x}.jpg`);
-}
-
 function playAudio() { 
-  document.getElementById("bg-audio").play();
+  document.getElementById("bg-audio").play()
+  $(".audio-btn").addClass("audio-active").html("Stop Music")
 } 
 
 function stopAudio() {
-  document.getElementById("bg-audio").pause();
-  document.getElementById("bg-audio").currentTime = 0.0;
+  document.getElementById("bg-audio").pause()
+  document.getElementById("bg-audio").currentTime = 0.0
+  $(".audio-btn").removeClass("audio-active").html("Play Music")
 }
 
 function clearOut() {
@@ -107,8 +103,8 @@ function clearOut() {
   $("#key-wrong").empty();
   $("#hint-img").attr("src", "#").hide(); // clear hint image
   $("#lives").html(lives);
-  $("#word-display2").html("Press Any Key To Start Hangman").css("color", "#fff");
-  $("#grow").css({"height": "0%"});
+  $("#word-display2").html("Press Any Key To Start Hangman").css("color", "#464646");
+  $("#grow").css({"width": "100%"});
 }
 
 function wisdom() {
@@ -210,9 +206,6 @@ function removeSpan() {
 function addToIncorrect(x) {
   var letter = $("<span>").html(`${x}`).addClass("letter");
   $("#key-wrong").append(letter);
-  if (incorrectLetters.length % 4 === 0) {
-    $("#key-wrong").append($("<br>"));
-  }
 }
 
 // Show the last key pressed
@@ -241,7 +234,7 @@ function checkGuess(x) {
       addToIncorrect(x);
       // make red div grow
       $("#lives").html(lives - incorrectLetters.length);
-      $("#grow").animate({height: `${incorrectLetters.length / lives * 100}%`});
+      $("#grow").animate({width: `${100-(incorrectLetters.length / lives * 100)}%`});
       wisdom();
   }
 }
@@ -262,7 +255,6 @@ function checkWin() {
       setTimeout(function() {
         $("#intro, #win, #lose").addClass("disappear");
         $(".game-time").removeClass("disappear");
-        backgroundPic()
         newGame();
       }, 3000);
   }
@@ -282,7 +274,6 @@ function checkLose() {
       setTimeout(function() {
         $("#intro, #win, #lose").addClass("disappear");
         $(".game-time").removeClass("disappear");
-        backgroundPic()
         newGame();
       }, 3000);
   }
@@ -328,18 +319,16 @@ function reset() {
   $("#newGame-btn").click(function(){
     $("#intro, #win, #lose").addClass("disappear");
     $(".game-time").removeClass("disappear");
-    backgroundPic()
     newGame();
   });
 
   $("#resetGame-btn").click(function(){
     $(".game-time, #win, #lose").addClass("disappear");
     $("#intro").removeClass("disappear");
-    backgroundPic()
     reset();
   });
 
-  $(".audio").click(function(){
+  $(".audio-btn").click(function(){
     if (toggler) {
       stopAudio();
       toggler = false;
@@ -355,8 +344,6 @@ document.onkeyup = function(event) {
   if (gameStart) {
       userGuess = event.key.toLocaleUpperCase();
 
-
-
       ////// Check if the event has already been chosen and if key is is a letter or number only (blank space and all oter keys will not work)////////////
       // Another way to exclude other key word is to use reg expression (/[a-zA-Z0-9]/.test(chosenWord[i])) == only return true if it is a letter or #
       // if you dont want # keys change to range "90" to "65"
@@ -369,5 +356,4 @@ document.onkeyup = function(event) {
   }
 }
 
-
-}); ////// DO NOT TOUCH --for doc.ready
+});
