@@ -1,20 +1,19 @@
-### Word-Guess-Game
+# Word-Guess-Game
+Play the game at: [kitkat0202.github.io/Word-Guess-Game/](https://kitkat0202.github.io/Word-Guess-Game/)
 
-
-# _JavaScript_Assignment_
-
+## _JavaScript_Assignment_
 The third  assignment of Columbia Coding Bootcamp. 
 
 <br/>
 
-# Finished Product:
+## Finished Product:
 <img src="assets/images/demo/welcome-page.png" alt="Finished Index" width="500px"/>
 <img src="assets/images/demo/game-page.png" alt="Finished Index" width="500px"/>
 <img src="assets/images/demo/win-page.png" alt="Finished Index" width="500px"/>
 <img src="assets/images/demo/lose-page.png" alt="Finished Index" width="500px"/>
 
 <br/><br/><br/><br/>
-# Project Info:
+## Project Info:
 - WARNING: **START button**: will play music <br/>
     `(but if you're the weirdo that don't like the pretty music and is too lazy to shut off you sound -- there is an on/off music button at your bottom left -.-' )`
 
@@ -45,7 +44,7 @@ The third  assignment of Columbia Coding Bootcamp.
 
 
 
-# Assignment Word Guess Game (Challenge - Recommended)
+## Assignment Word Guess Game (Challenge - Recommended)
 
 1. Watch the demo
 
@@ -69,7 +68,7 @@ The third  assignment of Columbia Coding Bootcamp.
 
 9. After the user wins/loses the game should automatically choose another word and make the user play it.
 <br/><br/>
-##### Word Guess Game Bonuses
+## Word Guess Game Bonuses
 1. Play a sound or song when the user guesses their word correctly, like in our demo.
 2. Write some stylish CSS rules to make a design that fits your game's theme.
 3. **HARD MODE:** Organize your game code as an object, except for the key events to get the letter guessed. This will be a challenge if you haven't coded with JavaScript before, but we encourage anyone already familiar with the language to try this out.
