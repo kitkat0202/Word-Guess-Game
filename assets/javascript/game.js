@@ -79,7 +79,7 @@ $(function() {
 
 //FUNCTIONS
 /////////////////////////  FUN DOM MANIPULATION   /////////////////////
-function playAudio() { 
+function playAudio() {
   document.getElementById("bg-audio").play()
   $(".audio-btn").addClass("audio-active").html("Stop Music")
 } 
@@ -313,7 +313,7 @@ function reset() {
     $("#intro").addClass("disappear");
     $(".game-time").removeClass("disappear");
     newGame();
-    playAudio();
+    // playAudio();
   });
 
   $("#newGame-btn").click(function(){
@@ -330,10 +330,10 @@ function reset() {
 
   $(".audio-btn").click(function(){
     if (toggler) {
-      stopAudio();
+      playAudio();
       toggler = false;
     } else {
-      playAudio();
+      stopAudio();
       toggler = true;
     }
   });
@@ -341,6 +341,7 @@ function reset() {
 
 //////////////// The WHOLE GAME BELOW ////////////////////
 document.onkeyup = function(event) {
+  $("#keyboard-pop input").val("")
   if (gameStart) {
       userGuess = event.key.toLocaleUpperCase();
 

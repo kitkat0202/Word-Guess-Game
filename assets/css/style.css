@@ -28,7 +28,6 @@ html, body {
     background-color: #889FB6;
     overflow: hidden;
     color: var(--font-sec-color);
-    text-shadow: 0 0 2px #000;
     font-family: var(--body-font);
     height: 100vh;
 }
@@ -229,7 +228,7 @@ h1 {
     border: 1px solid var(--font-main-color);
     background-color: #aaa66c56;
     margin-top: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 
 #health-bar h6 {
@@ -253,6 +252,29 @@ h2 {
     font-size: 35px;
     text-align: center;
     line-height: 50px;
+}
+
+/* Input */
+#keyboard-pop {
+    width: 185px;
+    height: 20px;
+    margin: 5px auto;
+    text-align: center;
+    position: relative;
+    color: #646464;
+}
+
+#keyboard-pop input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #00000000;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    color: #00000000;
+    letter-spacing: 1px;
+    z-index: 99;
 }
 
 /* Chalk board */
@@ -477,10 +499,6 @@ h6 {
 
     .middle {
         width: 74%;
-    }
-
-    #health-bar {
-        margin: 20px 0px;
     }
 
     #left {
