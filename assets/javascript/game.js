@@ -313,7 +313,6 @@ function reset() {
     $("#intro").addClass("disappear");
     $(".game-time").removeClass("disappear");
     newGame();
-    // playAudio();
   });
 
   $("#newGame-btn").click(function(){
