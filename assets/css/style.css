@@ -270,9 +270,13 @@ h2 {
     border: none;
     outline: none;
     font-size: 15px;
-    color: #00000000;
+    color: transparent;
     letter-spacing: 1px;
     z-index: 99;
+}
+
+input:focus {
+    outline: none;
 }
 
 /* Chalk board */
