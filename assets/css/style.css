@@ -724,4 +724,14 @@ h6 {
     .container {
         max-width: 540px;
     }
+
+    #win, #lose {
+        position: absolute;
+        top: 150px;
+        margin: 0 20px;
+    }
+
+    #win-img, #lose-img {
+        width: calc(100% - 40px);
+    }
 }
