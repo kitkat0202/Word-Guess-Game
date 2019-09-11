@@ -25,7 +25,7 @@ The third  assignment of Columbia Coding Bootcamp.
 
 - At the top left there is a hint image of what the anime is
 
-- If you are not good at anime and just want to see flow of the game you can comment in line 303 of game.js to see the console.log() of the answers
+- If you are not good at anime and just want to see flow of the game you can comment in line 294 of game.js to see the console.log() of the answers
 
 - Watch out for the Incorrect key box `-- think of it as your health bar --` the more lives you lose the more red will grow in it
 
